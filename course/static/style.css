@@ -1,0 +1,35 @@
+/* List Courses */
+.list-courses {
+  list-style-type: none;
+}
+
+.list-courses a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.list-courses li {
+  padding: 20px;
+  background-color: #dee2e6;
+  border-radius: 20px;
+  margin: 20px 0;
+  display: flex;
+
+  &:hover {
+    background-color: #e9ecef;
+  }
+}
+
+.list-courses li .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-courses img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 10px;
+}

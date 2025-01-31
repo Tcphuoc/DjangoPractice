@@ -3,7 +3,7 @@
 {% block body %}
 <ol class="list-courses">
   {% for course in courses %}
-    <a href="#">
+    <a href="{% url 'course:detail' course.id %}">
       <li>
         {% if course.course_image != '' %}
           <img src="{{ course.course_image.url }}" alt="image">

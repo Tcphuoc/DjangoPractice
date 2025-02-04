@@ -1,0 +1,32 @@
+{% extends 'base_with_navbar.html' %}
+{% load static %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'user/user_form_style.css' %}?v=1.1">
+{% endblock %}
+
+{% block body %}
+<div class="card">
+  <form method="post">
+    <h1>Register</h1>
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="input-group">
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.errors %}
+        {{ field.errors }}
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="form-buttons">
+      <button class="btn btn-primary me-3" type="submit">Sign up</button>
+      <a class="btn btn-outline-primary" href="{% url 'login' %}">Login</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

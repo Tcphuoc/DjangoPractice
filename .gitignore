@@ -1,0 +1,5 @@
+media/avatars/*
+!media/avatars/default_user.png
+media/images/*
+!media/images/default_course.jpg
+__pycache__

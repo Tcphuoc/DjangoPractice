@@ -10,13 +10,13 @@
 
 .list-courses li {
   padding: 20px;
-  background-color: #dee2e6;
+  background-color: var(--bs-gray-300);
   border-radius: 20px;
   margin: 20px 0;
   display: flex;
 
   &:hover {
-    background-color: #e9ecef;
+    background-color: var(--bs-gray-200);
   }
 }
 

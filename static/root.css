@@ -3,6 +3,11 @@
   --primary-light-color: #3a6ea5;
 }
 
+p, h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
 nav.navbar .user-icon {
   width: 50px;
 }

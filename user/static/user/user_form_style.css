@@ -13,6 +13,7 @@
 
 form .input-group {
   margin-bottom: 16px;
+  display: block;
 }
 
 form h1 {
@@ -25,7 +26,7 @@ form label {
 }
 
 form input {
-  width: 100%;
+  width: 100% !important;
   padding: 10px;
   border: 1px solid #000000;
   border-radius: 10px !important;

@@ -23,6 +23,11 @@ nav.navbar a.nav-link:hover {
   border-radius: 5px;
 }
 
+nav.navbar .dropdown-item svg {
+  margin: auto 0;
+  margin-right: 15px;
+}
+
 .btn-primary {
   background-color: var(--primary-color);
   border: 2px solid var(--primary-color);

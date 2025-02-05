@@ -1,4 +1,4 @@
-{% extends 'base_with_navbar.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -24,7 +24,8 @@ Login
     </div>
     {% endfor %}
     <div class="form-buttons">
-      <button class="btn btn-primary" type="submit">Login</button>
+      <button class="btn btn-primary me-3" type="submit">Login</button>
+      <a class="btn btn-outline-primary" href="{% url 'register' %}">Register</a>
     </div>
   </form>
 </div>

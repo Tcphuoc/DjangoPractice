@@ -1,17 +1,21 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
-from .forms import RegisterForm
-
-@login_required
-def index(request):
-    return HttpResponse('Hello')
+from .forms import RegisterForm, EditUserForm
 
 @login_required
 def profile(request):
-    return render(request, 'user/profile.html')
+    if request.method == 'POST':
+        form = EditUserForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Welcome {username} to Chatbot')
+            return redirect('login')
+    else:
+        form = EditUserForm()
+    return render(request, 'user/register.html', { 'form': form })
 
 def register(request):
     if request.method == 'POST':
@@ -19,7 +23,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Welcome {username} to Learning')
+            messages.success(request, f'Welcome {username} to Chatbot')
             return redirect('login')
     else:
         form = RegisterForm()

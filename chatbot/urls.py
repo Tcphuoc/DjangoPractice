@@ -1,5 +1,5 @@
 """
-URL configuration for learning project.
+URL configuration for chatbot project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -20,12 +20,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from user import views as user_views
-from course import views as course_views
 
 urlpatterns = [
-    path("", course_views.index, name="index"),
+    path("", user_views.profile, name="index"),
     path("user/", include("user.urls")),
-    path("courses/", include("course.urls")),
     path("register/", user_views.register, name="register"),
     path("login/", auth_views.LoginView.as_view(template_name="user/login.html"), name="login"),
     path("logout/", user_views.UserLogoutView.as_view(), name="logout"),

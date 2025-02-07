@@ -12,14 +12,16 @@ def profile(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Welcome {username} to Chatbot')
-            return redirect('login')
     else:
-        form = EditUserForm()
-    return render(request, 'user/register.html', { 'form': form })
+        form = EditUserForm(instance=request.user)
+    return render(request, 'user/form.html', {
+        'form': form,
+        'title': 'Profile',
+    })
 
 def register(request):
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
+        form = RegisterForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -27,7 +29,10 @@ def register(request):
             return redirect('login')
     else:
         form = RegisterForm()
-    return render(request, 'user/register.html', { 'form': form })
+    return render(request, 'user/form.html', {
+        'form': form,
+        'title': 'Register',
+    })
 
 class UserLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):

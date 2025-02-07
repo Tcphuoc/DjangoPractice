@@ -11,9 +11,15 @@ class BaseForm():
 class RegisterForm(BaseForm, UserCreationForm):
 	class Meta:
 		model = User
-		fields = ['avatar' ,'email', 'first_name', 'last_name', 'password1', 'password2']
+		fields = ['email', 'first_name', 'last_name', 'avatar', 'password1', 'password2']
+		labels = {
+			'avatar': 'Avatar (Optional):',
+		}
 
-class EditUserForm(BaseForm, UserChangeForm):
+class EditUserForm(BaseForm, forms.ModelForm):
 	class Meta:
 		model = User
-		fields = ['avatar' ,'email', 'first_name', 'last_name', 'password']
+		fields = ['email', 'first_name', 'last_name', 'avatar']
+		labels = {
+			'avatar': 'Avatar (Optional):',
+		}

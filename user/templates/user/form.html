@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}
-Register
-{% endblock %}
-
 {% block css %}
 <link rel="stylesheet" href="{% static 'user/user_form_style.css' %}?v=1.1">
 {% endblock %}
 
 {% block body %}
 <div class="card">
-  <form method="post">
-    <h1>Register</h1>
+  <form method="post" enctype='multipart/form-data'>
+    {% if title %}
+    <h1>{{title}}</h1>
+    {% endif %}
+
     {% csrf_token %}
     {% for field in form %}
     <div class="input-group">
